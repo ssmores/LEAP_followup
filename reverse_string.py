@@ -72,11 +72,25 @@ def rev_recur(string):
     return rev_recur(string[1:]) + string[0]
 
 
+def rev_recur2(string):
+    """Returns the string reversed, using recursion.
+
+        >>> rev_recur2('tuba')
+        'abut'
+
+    """
+
+    if len(string) < 2:
+        return string
+
+    return string[-1] + rev_recur2(string[1:len(string) - 1]) + string[0]
+
+
 def reverse1(string):
     """Returns the string reversed.
 
-        >>> reverse1('yoyoyo')
-        'oyoyoy'
+        >>> reverse1('foobar baz')
+        'zab raboof'
 
     """
 
@@ -94,6 +108,26 @@ def reverse1(string):
     
     return string
 
+
+def reverse2(string):
+    """Returns the string reversed, without recursion, using string splicing.
+
+    >>> reverse2('TACocat')
+    'tacoCAT'
+
+    """
+    
+    s_len = int(len(string)/2)
+    
+    for i in range(1, s_len + 1):        
+
+        string = (string[:i-1] + 
+                 string[len(string) - i] + 
+                 string[i: len(string) - i] +          
+                 string[i-1] +
+                 string[len(string) - i + 1:])
+
+    return string
 
 
 #####################################################################
