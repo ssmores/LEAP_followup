@@ -96,8 +96,6 @@ def reverse1(string):
 
     str_len = len(string)
     halfway = int(str_len/2)
-    i = 0
-    temp = ''
     
     char = [item for item in string]
     
